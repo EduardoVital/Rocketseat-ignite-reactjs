@@ -1,0 +1,34 @@
+.createTask {
+  width: 100%;
+  display: flex;
+  margin-top: -27px;
+}
+
+.createTask input {
+  width: 638px;
+  height: 54px;
+  margin-right: 8px;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid var(--gray-700);
+  background-color: var(--gray-500);
+  color: var(--gray-300);
+}
+
+.createTask button {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  width: 90px;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: var(--blueDark);
+  color: var(--gray-100);
+  cursor: pointer;
+}
+
+.createTask button span {
+  margin-right: 8px;
+}

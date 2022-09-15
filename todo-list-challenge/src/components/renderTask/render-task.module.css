@@ -1,0 +1,42 @@
+.renderTaskContainer {
+  height: 287px;
+}
+
+.counterTask {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 64px;
+}
+
+.taskCreated, .taskFinished {
+  display: flex;
+  align-items: center;
+}
+
+.taskCreated {
+  color: var(--blue);
+}
+
+.taskFinished {
+  color: var(--purple);
+}
+
+.taskCreated div, .taskFinished div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  font-size: 0.75rem;
+  width: 25px;
+  text-align: center;
+  border-radius: 999px;
+  margin-left: 8px;
+  background-color: var(--gray-400);
+  color: var(--gray-200);
+  font-weight: 700;
+}
+
+.taskFinished .hasCompletedTask {
+  width: 52px;
+}
