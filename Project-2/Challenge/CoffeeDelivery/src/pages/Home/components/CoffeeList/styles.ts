@@ -10,6 +10,9 @@ export const CoffeeListTitle = styled.h2`
 
 export const CoffeeListContainer = styled.div`
   padding-bottom: 9.375rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem 5.938rem;
 
   button {
     outline: none;
@@ -26,6 +29,12 @@ export const CoffeeListBox = styled.div`
   width: 16rem;
   border-radius: 0.375rem 2.25rem;
   padding: 0 1.25rem 1.25rem;
+`
+
+export const LabelsBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
 `
 
 export const CoffeeImage = styled.img`
@@ -54,7 +63,7 @@ export const Subtitle = styled.p`
   margin-bottom: 2.063rem;
 `
 
-export const Footer = styled.div`
+export const Footer = styled.footer`
   display: flex;
   flex-direction: wrap;
   align-items: stretch;
@@ -68,25 +77,6 @@ export const Footer = styled.div`
       font-size: 1.5rem;
       font-weight: 800;
       margin-left: 0.313rem;
-    }
-  }
-
-  div {
-    padding: 0.75rem;
-    margin-right: 0.5rem;
-    background-color: ${(props) => props.theme['base-button']};
-    border-radius: 0.375rem;
-    display: flex;
-    align-items: center;
-
-    span {
-      margin: 0 0.5rem;
-      color: ${(props) => props.theme['base-title']};
-      font-size: 1rem;
-    }
-
-    button {
-      background: transparent;
     }
   }
 `

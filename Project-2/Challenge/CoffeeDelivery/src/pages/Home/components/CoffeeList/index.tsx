@@ -8,15 +8,30 @@ import {
   CoffeeListBox,
   CartButton,
   CoffeeImage,
+  LabelsBox,
 } from './styles'
-import coffeeIrlandes from '../../../../assets/coffees/irlandes.svg'
 import cartIcon from '../../../../assets/cart.svg'
-import increaseIcon from '../../../../assets/increase.svg'
-import decreaseIcon from '../../../../assets/decrease.svg'
+import { TheAmount } from '../../../../components/TheAmount/index'
 
-export function CoffeeList() {
+interface CoffeeListData {
+  name: string
+  image: string
+  description: string
+  tags: string[]
+  price: number
+}
+
+interface CoffeeListProps {
+  coffees: CoffeeListData[]
+}
+
+export function CoffeeList({ coffees }: CoffeeListProps) {
   function transformToUpperCase(text: string) {
     return text.toUpperCase()
+  }
+
+  function transformToCurrency(price: number) {
+    return price.toLocaleString('pt-br', { minimumFractionDigits: 2 })
   }
 
   return (
@@ -24,31 +39,33 @@ export function CoffeeList() {
       <CoffeeListTitle>Nossos cafés</CoffeeListTitle>
 
       <CoffeeListContainer>
-        <CoffeeListBox>
-          <CoffeeImage src={coffeeIrlandes} alt="" />
-          <Label>{transformToUpperCase('Tradicional')}</Label>
-          <Title>Expresso Tradicional</Title>
-          <Subtitle>
-            O tradicional café feito com água quente e grãos moídos
-          </Subtitle>
-          <Footer>
-            <p>
-              R$<span>9,90</span>
-            </p>
-            <div>
-              <button>
-                <img src={decreaseIcon} alt="" />
-              </button>
-              <span>1</span>
-              <button>
-                <img src={increaseIcon} alt="" />
-              </button>
-            </div>
-            <CartButton>
-              <img src={cartIcon} alt="" />
-            </CartButton>
-          </Footer>
-        </CoffeeListBox>
+        {coffees.map((coffee) => {
+          return (
+            <CoffeeListBox key={coffee.name}>
+              <CoffeeImage src={coffee.image} alt={coffee.name} />
+
+              <LabelsBox>
+                {coffee.tags.map((tagsName, index) => {
+                  return (
+                    <Label key={index}>{transformToUpperCase(tagsName)}</Label>
+                  )
+                })}
+              </LabelsBox>
+
+              <Title>{coffee.name}</Title>
+              <Subtitle>{coffee.description}</Subtitle>
+              <Footer>
+                <p>
+                  R$<span>{transformToCurrency(coffee.price)}</span>
+                </p>
+                <TheAmount />
+                <CartButton>
+                  <img src={cartIcon} alt="" />
+                </CartButton>
+              </Footer>
+            </CoffeeListBox>
+          )
+        })}
       </CoffeeListContainer>
     </section>
   )
