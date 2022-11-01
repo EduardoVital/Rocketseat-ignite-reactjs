@@ -3,7 +3,7 @@ import clockIcon from '../assets/clock.svg'
 import coffeeIcon from '../assets/coffee.svg'
 import cartIcon from '../assets/cart.svg'
 
-export const iconsList = [
+export const bannerIconsList = [
   {
     text: 'Compra simples e segura',
     icon: cartIcon,

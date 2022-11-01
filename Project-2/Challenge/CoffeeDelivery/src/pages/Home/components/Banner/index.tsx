@@ -1,4 +1,4 @@
-import { iconsList } from '../../../../utilities/iconsList'
+import { bannerIconsList } from '../../../../utilities/bannerIconsList'
 import {
   BannerListItems,
   BannerContainer,
@@ -21,7 +21,7 @@ export function Banner() {
           </p>
         </BannerText>
         <BannerListItemsContainer>
-          {iconsList.map((list) => {
+          {bannerIconsList.map((list) => {
             return (
               <BannerListItems key={list.icon} icon={list.key}>
                 <div>
