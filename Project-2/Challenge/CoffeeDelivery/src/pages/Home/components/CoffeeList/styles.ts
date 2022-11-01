@@ -87,6 +87,11 @@ export const CartButton = styled.button`
   align-items: center;
   border-radius: 0.375rem;
   background-color: ${(props) => props.theme['purple-dark']};
+  transition: 0.1s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.purple};
+  }
 
   img {
     width: 1.375rem;
