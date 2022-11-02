@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import {
   CoffeeListTitle,
   CoffeeListContainer,
@@ -12,6 +14,7 @@ import {
 } from './styles'
 import cartIcon from '../../../../assets/cart.svg'
 import { TheAmount } from '../../../../components/TheAmount/index'
+import { coffeesList } from '../../../../utilities/coffeesList'
 
 interface CoffeeListData {
   name: string
@@ -19,13 +22,13 @@ interface CoffeeListData {
   description: string
   tags: string[]
   price: number
+  amount: number
 }
 
-interface CoffeeListProps {
-  coffees: CoffeeListData[]
-}
+export function CoffeeList() {
+  const [coffeeSelected, setCoffeeSelected] = useState<CoffeeListData[]>([])
+  const [coffeeList, setCoffeeList] = useState<CoffeeListData[]>(coffeesList)
 
-export function CoffeeList({ coffees }: CoffeeListProps) {
   function transformToUpperCase(text: string) {
     return text.toUpperCase()
   }
@@ -34,12 +37,60 @@ export function CoffeeList({ coffees }: CoffeeListProps) {
     return price.toLocaleString('pt-br', { minimumFractionDigits: 2 })
   }
 
+  function handleIncreaseAmount(name: string) {
+    const increase = coffeeList.map((coffee) =>
+      coffee.name === name
+        ? {
+            ...coffee,
+            amount: coffee.amount + 1,
+          }
+        : coffee,
+    )
+
+    setCoffeeList(increase)
+  }
+
+  function handleDecreaseAmount(name: string) {
+    const decrease = coffeeList.map((coffee) =>
+      coffee.name === name
+        ? {
+            ...coffee,
+            amount: coffee.amount - 1,
+          }
+        : coffee,
+    )
+
+    setCoffeeList(decrease)
+  }
+
+  function handleAddCoffeeToCart(coffee: CoffeeListData) {
+    const isExists = coffeeSelected
+      .map((coffees) => coffees.name)
+      .includes(coffee.name)
+
+    if (isExists) {
+      if (coffee.amount > 0) {
+        const increaseAmount = coffeeSelected.map((cof) =>
+          cof.name === coffee.name
+            ? {
+                ...cof,
+                amount: cof.amount + coffee.amount,
+              }
+            : cof,
+        )
+        setCoffeeSelected(increaseAmount)
+      }
+    } else {
+      setCoffeeSelected([...coffeeSelected, coffee])
+    }
+  }
+
   return (
     <section>
       <CoffeeListTitle>Nossos cafés</CoffeeListTitle>
 
       <CoffeeListContainer>
-        {coffees.map((coffee) => {
+        {coffeeList.map((coffee) => {
           return (
             <CoffeeListBox key={coffee.name}>
               <CoffeeImage src={coffee.image} alt={coffee.name} />
@@ -54,12 +105,18 @@ export function CoffeeList({ coffees }: CoffeeListProps) {
 
               <Title>{coffee.name}</Title>
               <Subtitle>{coffee.description}</Subtitle>
+
               <Footer>
                 <p>
                   R$<span>{transformToCurrency(coffee.price)}</span>
                 </p>
-                <TheAmount />
-                <CartButton>
+                <TheAmount
+                  amount={coffee.amount}
+                  name={coffee.name}
+                  onDecreaseAmount={handleDecreaseAmount}
+                  onIncreaseAmount={handleIncreaseAmount}
+                />
+                <CartButton onClick={() => handleAddCoffeeToCart(coffee)}>
                   <img src={cartIcon} alt="" />
                 </CartButton>
               </Footer>
