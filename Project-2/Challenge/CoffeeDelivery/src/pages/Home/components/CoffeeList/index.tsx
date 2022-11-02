@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import {
   CoffeeListTitle,
@@ -15,6 +15,7 @@ import {
 import cartIcon from '../../../../assets/cart.svg'
 import { TheAmount } from '../../../../components/TheAmount/index'
 import { coffeesList } from '../../../../utilities/coffeesList'
+import { CoffeesContext } from '../../../../contexts/CoffeesContext'
 
 interface CoffeeListData {
   name: string
@@ -26,7 +27,7 @@ interface CoffeeListData {
 }
 
 export function CoffeeList() {
-  const [coffeeSelected, setCoffeeSelected] = useState<CoffeeListData[]>([])
+  const { setCoffee, coffeeSelected } = useContext(CoffeesContext)
   const [coffeeList, setCoffeeList] = useState<CoffeeListData[]>(coffeesList)
 
   function transformToUpperCase(text: string) {
@@ -78,10 +79,10 @@ export function CoffeeList() {
               }
             : cof,
         )
-        setCoffeeSelected(increaseAmount)
+        setCoffee(increaseAmount)
       }
     } else {
-      setCoffeeSelected([...coffeeSelected, coffee])
+      setCoffee([...coffeeSelected, coffee])
     }
   }
 

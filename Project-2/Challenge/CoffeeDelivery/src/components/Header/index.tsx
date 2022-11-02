@@ -1,10 +1,21 @@
+import { useContext } from 'react'
+
 import logoCoffeeDelivery from '../../assets/logo.svg'
 import localeIcon from '../../assets/locale.svg'
 import shoppingCartIcon from '../../assets/shoppingCart.svg'
+import { CoffeesContext } from '../../contexts/CoffeesContext'
 
 import { HeaderContainer, ShoppingBox } from './styles'
 
 export function Header() {
+  const { coffeeSelected } = useContext(CoffeesContext)
+
+  const numberOfItemsOnCart = coffeeSelected
+    .map((coffees) => coffees.amount)
+    .reduce((acc, value) => {
+      return acc + value
+    }, 0)
+
   return (
     <HeaderContainer>
       <span>
@@ -18,7 +29,7 @@ export function Header() {
         </div>
         <div>
           <img src={shoppingCartIcon} alt="" />
-          <span>1</span>
+          {numberOfItemsOnCart > 0 && <span>{numberOfItemsOnCart}</span>}
         </div>
       </ShoppingBox>
     </HeaderContainer>

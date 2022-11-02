@@ -8,11 +8,19 @@ import {
 
 interface SelectedCoffeesData {
   name: string
-  amount: number
   image: string
+  description: string
+  tags: string[]
+  price: number
+  amount: number
 }
 
-export const CoffeesContext = createContext({} as SelectedCoffeesData)
+interface CoffeeContextProps {
+  coffeeSelected: SelectedCoffeesData[]
+  setCoffee: (Coffees: SelectedCoffeesData[]) => void
+}
+
+export const CoffeesContext = createContext({} as CoffeeContextProps)
 
 interface CoffeesContextProviderProps {
   children: ReactNode
@@ -21,20 +29,20 @@ interface CoffeesContextProviderProps {
 export function CoffeesContextProvider({
   children,
 }: CoffeesContextProviderProps) {
+  const [coffeeSelected, setCoffeeSelected] = useState<SelectedCoffeesData[]>(
+    [],
+  )
+
+  function setCoffee(coffees: SelectedCoffeesData[]) {
+    setCoffeeSelected(coffees)
+  }
+
   return (
     <CoffeesContext.Provider
-      value={
-        {
-          // cycles,
-          // activeCycle,
-          // activeCycleId,
-          // markCurrentCycleAsFinished,
-          // amountSecondsPassed,
-          // setSecondsPassed,
-          // createNewCycle,
-          // interruptCurrentCycle,
-        }
-      }
+      value={{
+        coffeeSelected,
+        setCoffee,
+      }}
     >
       {children}
     </CoffeesContext.Provider>
