@@ -14,6 +14,7 @@ export const BannerListItemsContainer = styled.div`
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 36.25rem;
 `
 
 export const BannerListItems = styled.div<BackgroundColorProps>`
@@ -57,17 +58,14 @@ export const BannerListItems = styled.div<BackgroundColorProps>`
 `
 
 export const BannerImage = styled.div`
-  width: 40%;
+  width: 45%;
   img {
-    /* width: 29.75rem;
-    height: 22.5rem; */
     width: 100%;
   }
 `
 
 export const BannerInfos = styled.div`
-  width: 60%;
-  /* width: 36.75rem; */
+  width: 55%;
 `
 
 export const BannerText = styled.div`

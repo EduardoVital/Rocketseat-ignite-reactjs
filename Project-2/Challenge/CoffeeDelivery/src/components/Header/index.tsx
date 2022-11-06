@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import logoCoffeeDelivery from '../../assets/logo.svg'
 import localeIcon from '../../assets/locale.svg'
@@ -19,7 +20,9 @@ export function Header() {
   return (
     <HeaderContainer>
       <span>
-        <img src={logoCoffeeDelivery} alt="" />
+        <NavLink to="/" title="home">
+          <img src={logoCoffeeDelivery} alt="" />
+        </NavLink>
       </span>
 
       <ShoppingBox>
@@ -28,8 +31,10 @@ export function Header() {
           <p>Porto Alegre, RS</p>
         </div>
         <div>
-          <img src={shoppingCartIcon} alt="" />
-          {numberOfItemsOnCart > 0 && <span>{numberOfItemsOnCart}</span>}
+          <NavLink to="/checkout" title="Checkout">
+            <img src={shoppingCartIcon} alt="" />
+            {numberOfItemsOnCart > 0 && <span>{numberOfItemsOnCart}</span>}
+          </NavLink>
         </div>
       </ShoppingBox>
     </HeaderContainer>

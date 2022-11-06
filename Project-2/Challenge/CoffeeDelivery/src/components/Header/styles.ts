@@ -33,6 +33,10 @@ export const ShoppingBox = styled.div`
       top: -6px;
       right: -6px;
     }
+
+    a {
+      display: flex;
+    }
   }
 
   div:nth-child(1) {

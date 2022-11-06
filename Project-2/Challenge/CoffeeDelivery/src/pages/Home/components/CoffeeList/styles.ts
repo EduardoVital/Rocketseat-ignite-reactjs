@@ -12,7 +12,7 @@ export const CoffeeListContainer = styled.div`
   padding-bottom: 9.375rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem 5.938rem;
+  gap: 2.5rem 1.563rem;
 
   button {
     outline: none;
