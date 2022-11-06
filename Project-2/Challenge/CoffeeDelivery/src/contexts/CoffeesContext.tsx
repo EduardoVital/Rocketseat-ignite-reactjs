@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useEffect,
-  useReducer,
-  useState,
-} from 'react'
+import { createContext, ReactNode, useState } from 'react'
 
 interface SelectedCoffeesData {
   name: string

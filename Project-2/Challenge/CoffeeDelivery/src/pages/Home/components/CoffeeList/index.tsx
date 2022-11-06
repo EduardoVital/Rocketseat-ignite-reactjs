@@ -38,6 +38,19 @@ export function CoffeeList() {
     return price.toLocaleString('pt-br', { minimumFractionDigits: 2 })
   }
 
+  function resetAmountToZero(name: string) {
+    const reset = coffeeList.map((coffee) =>
+      coffee.name === name
+        ? {
+            ...coffee,
+            amount: 0,
+          }
+        : coffee,
+    )
+
+    setCoffeeList(reset)
+  }
+
   function handleIncreaseAmount(name: string) {
     const increase = coffeeList.map((coffee) =>
       coffee.name === name
@@ -53,7 +66,7 @@ export function CoffeeList() {
 
   function handleDecreaseAmount(name: string) {
     const decrease = coffeeList.map((coffee) =>
-      coffee.name === name
+      coffee.name === name && coffee.amount > 0
         ? {
             ...coffee,
             amount: coffee.amount - 1,
@@ -84,6 +97,8 @@ export function CoffeeList() {
     } else {
       setCoffee([...coffeeSelected, coffee])
     }
+
+    resetAmountToZero(coffee.name)
   }
 
   return (
