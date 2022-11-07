@@ -24,6 +24,7 @@ interface CoffeeListData {
   tags: string[]
   price: number
   amount: number
+  total: number
 }
 
 export function CoffeeList() {
@@ -89,6 +90,7 @@ export function CoffeeList() {
             ? {
                 ...cof,
                 amount: cof.amount + coffee.amount,
+                total: cof.price * coffee.amount,
               }
             : cof,
         )

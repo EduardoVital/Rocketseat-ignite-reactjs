@@ -7,6 +7,7 @@ interface SelectedCoffeesData {
   tags: string[]
   price: number
   amount: number
+  total: number
 }
 
 interface CoffeeContextProps {
@@ -29,6 +30,7 @@ export function CoffeesContextProvider({
 
   function setCoffee(coffees: SelectedCoffeesData[]) {
     setCoffeeSelected(coffees)
+    console.log(coffeeSelected)
   }
 
   return (

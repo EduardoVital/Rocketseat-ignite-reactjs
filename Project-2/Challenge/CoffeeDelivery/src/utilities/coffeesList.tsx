@@ -21,6 +21,7 @@ export const coffeesList = [
     tags: ['tradicional'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Expresso Americano',
@@ -29,6 +30,7 @@ export const coffeesList = [
     tags: ['tradicional'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Expresso Cremoso',
@@ -37,6 +39,7 @@ export const coffeesList = [
     tags: ['tradicional'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Expresso Gelado',
@@ -45,6 +48,7 @@ export const coffeesList = [
     tags: ['tradicional', 'gelado'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Café com leite',
@@ -53,6 +57,7 @@ export const coffeesList = [
     tags: ['tradicional', 'com leite'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Latte',
@@ -62,6 +67,7 @@ export const coffeesList = [
     tags: ['tradicional', 'com leite'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Capuccino',
@@ -71,6 +77,7 @@ export const coffeesList = [
     tags: ['tradicional', 'com leite'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Macchiato',
@@ -80,6 +87,7 @@ export const coffeesList = [
     tags: ['tradicional', 'com leite'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Mocaccino',
@@ -88,6 +96,7 @@ export const coffeesList = [
     tags: ['tradicional', 'com leite'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Chocolate Quente',
@@ -96,6 +105,7 @@ export const coffeesList = [
     tags: ['tradicional', 'com leite'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Cubano',
@@ -105,6 +115,7 @@ export const coffeesList = [
     tags: ['tradicional', 'alcoólico', 'gelado'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Havaiano',
@@ -113,6 +124,7 @@ export const coffeesList = [
     tags: ['especial'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Árabe',
@@ -121,6 +133,7 @@ export const coffeesList = [
     tags: ['especial'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
   {
     name: 'Irlandês',
@@ -129,5 +142,6 @@ export const coffeesList = [
     tags: ['especial', 'alcoólico'],
     price: 9.9,
     amount: 0,
+    total: 0,
   },
 ]
