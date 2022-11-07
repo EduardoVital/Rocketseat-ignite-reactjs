@@ -7,15 +7,15 @@ import {
   Title,
   Subtitle,
   Footer,
-  CoffeeListBox,
   CartButton,
   CoffeeImage,
-  LabelsBox,
+  CoffeeLabels,
 } from './styles'
 import cartIcon from '../../../../assets/cart.svg'
 import { TheAmount } from '../../../../components/TheAmount/index'
 import { coffeesList } from '../../../../utilities/coffeesList'
 import { CoffeesContext } from '../../../../contexts/CoffeesContext'
+import { CoffeeCard } from '../../../../components/CoffeeCard'
 
 interface CoffeeListData {
   name: string
@@ -110,16 +110,16 @@ export function CoffeeList() {
       <CoffeeListContainer>
         {coffeeList.map((coffee) => {
           return (
-            <CoffeeListBox key={coffee.name}>
+            <CoffeeCard key={coffee.name}>
               <CoffeeImage src={coffee.image} alt={coffee.name} />
 
-              <LabelsBox>
+              <CoffeeLabels>
                 {coffee.tags.map((tagsName, index) => {
                   return (
                     <Label key={index}>{transformToUpperCase(tagsName)}</Label>
                   )
                 })}
-              </LabelsBox>
+              </CoffeeLabels>
 
               <Title>{coffee.name}</Title>
               <Subtitle>{coffee.description}</Subtitle>
@@ -138,7 +138,7 @@ export function CoffeeList() {
                   <img src={cartIcon} alt="" />
                 </CartButton>
               </Footer>
-            </CoffeeListBox>
+            </CoffeeCard>
           )
         })}
       </CoffeeListContainer>
