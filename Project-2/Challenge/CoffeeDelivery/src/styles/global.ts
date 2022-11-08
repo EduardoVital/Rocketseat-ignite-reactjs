@@ -20,4 +20,19 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 1rem;
   }
+
+  input {
+    background-color: ${(props) => props.theme['base-button']};
+    color: ${(props) => props.theme['base-label']};
+    border-radius: 0.25rem;
+    outline: none;
+    border: none;
+    padding: 0.75rem;
+    width: 12.5rem;
+  }
+
+  .title-form {
+    display: flex;
+    align-items: flex-start;
+  }
 `

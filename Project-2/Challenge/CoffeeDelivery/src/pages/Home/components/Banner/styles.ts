@@ -58,18 +58,19 @@ export const BannerListItems = styled.div<BackgroundColorProps>`
 `
 
 export const BannerImage = styled.div`
-  width: 45%;
+  width: 40%;
   img {
     width: 100%;
   }
 `
 
 export const BannerInfos = styled.div`
-  width: 55%;
+  width: 60%;
 `
 
 export const BannerText = styled.div`
   margin-bottom: 4.125rem;
+  width: 34.875rem;
 
   h1 {
     font-size: 3rem;
