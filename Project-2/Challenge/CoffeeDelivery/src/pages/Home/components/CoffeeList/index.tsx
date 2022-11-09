@@ -110,7 +110,7 @@ export function CoffeeList() {
       <CoffeeListContainer>
         {coffeeList.map((coffee) => {
           return (
-            <CoffeeCard key={coffee.name}>
+            <CoffeeCard width="M" padding="M" key={coffee.name}>
               <CoffeeImage src={coffee.image} alt={coffee.name} />
 
               <CoffeeLabels>

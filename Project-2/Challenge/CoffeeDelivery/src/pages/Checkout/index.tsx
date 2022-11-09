@@ -1,9 +1,12 @@
 import { Form } from './components/Form'
+import { SelectedCoffees } from './components/SelectedCoffees'
+import { CheckoutContainer } from './styles'
 
 export function Checkout() {
   return (
-    <div>
+    <CheckoutContainer>
       <Form />
-    </div>
+      <SelectedCoffees />
+    </CheckoutContainer>
   )
 }
