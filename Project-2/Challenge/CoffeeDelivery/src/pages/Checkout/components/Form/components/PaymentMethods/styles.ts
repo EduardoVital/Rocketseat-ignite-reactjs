@@ -5,7 +5,7 @@ export const PaymentForm = styled.div`
   padding: 2.5rem;
   width: 40rem;
   border-radius: 0.375rem;
-  margin-top: 0.75rem;
+  margin: 0.75rem 0 3rem;
 
   .title-form {
     img {
@@ -25,6 +25,30 @@ export const PaymentForm = styled.div`
       span {
         font-size: 0.875rem;
       }
+    }
+  }
+`
+
+export const PaymentOptionsContainer = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.75rem;
+
+  div {
+    display: flex;
+    align-items: center;
+    background-color: ${(props) => props.theme['base-button']};
+    width: 11.25rem;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+
+    img {
+      margin-right: 0.75rem;
+    }
+
+    p {
+      font-size: 0.75rem;
     }
   }
 `

@@ -22,11 +22,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   input {
-    background-color: ${(props) => props.theme['base-button']};
+    background-color: ${(props) => props.theme['base-input']};
     color: ${(props) => props.theme['base-label']};
     border-radius: 0.25rem;
+    border: 1px solid ${(props) => props.theme['base-button']};
     outline: none;
-    border: none;
     padding: 0.75rem;
     width: 12.5rem;
   }
