@@ -10,5 +10,3 @@ export const Title = styled.h2`
 export const SelectedCoffeesCard = styled.section`
   width: 28rem;
 `
-
-export const Coffees = styled.section``
