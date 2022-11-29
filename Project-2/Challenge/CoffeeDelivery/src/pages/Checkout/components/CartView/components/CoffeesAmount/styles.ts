@@ -56,6 +56,7 @@ export const Coffees = styled.div`
           border-radius: 0.375rem;
           cursor: pointer;
           border: none;
+          transition: 0.1s ease;
 
           img {
             margin-right: 0.25rem;
@@ -64,6 +65,10 @@ export const Coffees = styled.div`
           p {
             font-size: 0.75rem;
             color: ${(props) => props.theme['base-text']};
+          }
+
+          &:hover {
+            background-color: ${(props) => props.theme['base-hover']};
           }
         }
       }

@@ -32,5 +32,10 @@ export const TotalContainer = styled.div`
     font-weight: 700;
     color: ${(props) => props.theme.white};
     cursor: pointer;
+    transition: 0.1s ease;
+
+    &:hover {
+      background-color: ${(props) => props.theme['yellow-dark']};
+    }
   }
 `
