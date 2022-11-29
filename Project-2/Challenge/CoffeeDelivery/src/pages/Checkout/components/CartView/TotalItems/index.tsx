@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { CoffeesContext } from '../../../../../../contexts/CoffeesContext'
+import { CoffeesContext } from '../../../../../contexts/CoffeesContext'
 import { TotalContainer } from './styles'
 
 export function TotalItems() {

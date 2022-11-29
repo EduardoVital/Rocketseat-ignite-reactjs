@@ -1,6 +1,6 @@
 import { PaymentForm, PaymentOptionsContainer } from './styles'
-import paymentIcon from '../../../../../../assets/paymentIcon.svg'
-import { paymentOptions } from '../../../../../../utilities/paymentMethodsList'
+import paymentIcon from '../../../../../assets/paymentIcon.svg'
+import { paymentOptions } from '../../../../../utilities/paymentMethodsList'
 
 export function PaymentMethods() {
   function transformToUpperCase(text: string) {

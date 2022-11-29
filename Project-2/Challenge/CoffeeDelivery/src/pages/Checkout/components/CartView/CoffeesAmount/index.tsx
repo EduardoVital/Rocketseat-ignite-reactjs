@@ -1,7 +1,7 @@
-import { TheAmount } from '../../../../../../components/TheAmount'
+import { TheAmount } from '../../../../../components/TheAmount'
 import { Coffees, Divider } from './styles'
-import TrashIcon from '../../../../../../assets/trash.svg'
-import { CoffeesContext } from '../../../../../../contexts/CoffeesContext'
+import TrashIcon from '../../../../../assets/trash.svg'
+import { CoffeesContext } from '../../../../../contexts/CoffeesContext'
 import { useContext } from 'react'
 
 export function CoffeesAmount() {

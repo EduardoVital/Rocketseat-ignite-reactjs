@@ -8,7 +8,7 @@ import {
   InputZipCode,
   InputState,
 } from './styles'
-import localeIcon from '../../../../../../assets/localeFormIcon.svg'
+import localeIcon from '../../../../../assets/localeFormIcon.svg'
 
 export function LocaleForm() {
   return (

@@ -1,6 +1,6 @@
 import { CoffeeCard } from '../../../../components/CoffeeCard'
-import { CoffeesAmount } from './components/CoffeesAmount'
-import { TotalItems } from './components/TotalItems'
+import { CoffeesAmount } from './CoffeesAmount'
+import { TotalItems } from './TotalItems'
 import { Title, SelectedCoffeesCard } from './styles'
 
 export function CartView() {

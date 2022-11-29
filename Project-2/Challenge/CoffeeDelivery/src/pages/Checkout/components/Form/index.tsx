@@ -1,5 +1,5 @@
-import { LocaleForm } from './components/LocaleForm/LocaleForm'
-import { PaymentMethods } from './components/PaymentMethods'
+import { LocaleForm } from './LocaleForm/LocaleForm'
+import { PaymentMethods } from './PaymentMethods'
 import { Title } from './styles'
 
 export function Form() {
