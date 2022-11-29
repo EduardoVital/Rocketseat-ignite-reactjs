@@ -5,7 +5,8 @@ import { CoffeesContext } from '../../../../../../contexts/CoffeesContext'
 import { useContext } from 'react'
 
 export function CoffeesAmount() {
-  const { setCoffee, coffeeSelected } = useContext(CoffeesContext)
+  const { coffeeSelected, increaseAmountOnCheckout, decreaseAmountOnCheckout } =
+    useContext(CoffeesContext)
 
   function transformToUpperCase(text: string) {
     return text.toUpperCase()
@@ -16,33 +17,11 @@ export function CoffeesAmount() {
   }
 
   function handleDecreaseAmount(name: string) {
-    const decrease = coffeeSelected.map((coffee) =>
-      coffee.name === name && coffee.amount > 0
-        ? {
-            ...coffee,
-            amount: coffee.amount - 1,
-            total: coffee.price * coffee.amount,
-          }
-        : coffee,
-    )
-
-    setCoffee(decrease)
-    console.log(coffeeSelected)
+    decreaseAmountOnCheckout(name)
   }
 
   function handleIncreaseAmount(name: string) {
-    const increase = coffeeSelected.map((coffee) =>
-      coffee.name === name
-        ? {
-            ...coffee,
-            amount: coffee.amount + 1,
-            total: coffee.price * coffee.amount,
-          }
-        : coffee,
-    )
-
-    setCoffee(increase)
-    console.log(coffeeSelected)
+    increaseAmountOnCheckout(name)
   }
 
   return (
