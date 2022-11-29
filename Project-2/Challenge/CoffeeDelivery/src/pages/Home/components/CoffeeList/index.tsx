@@ -90,14 +90,15 @@ export function CoffeeList() {
             ? {
                 ...cof,
                 amount: cof.amount + coffee.amount,
-                total: cof.price * coffee.amount,
+                total: cof.price * (coffee.amount + cof.amount),
               }
             : cof,
         )
         setCoffee(increaseAmount)
       }
     } else {
-      setCoffee([...coffeeSelected, coffee])
+      const increaseAmount = { ...coffee, total: coffee.amount * coffee.price }
+      setCoffee([...coffeeSelected, increaseAmount])
     }
 
     resetAmountToZero(coffee.name)

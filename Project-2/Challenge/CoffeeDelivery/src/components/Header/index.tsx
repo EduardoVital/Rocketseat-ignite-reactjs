@@ -31,10 +31,16 @@ export function Header() {
           <p>Porto Alegre, RS</p>
         </div>
         <div>
-          <NavLink to="/checkout" title="Checkout">
-            <img src={shoppingCartIcon} alt="" />
-            {numberOfItemsOnCart > 0 && <span>{numberOfItemsOnCart}</span>}
-          </NavLink>
+          {numberOfItemsOnCart > 0 ? (
+            <NavLink to="/checkout" title="Checkout">
+              <img src={shoppingCartIcon} alt="" />
+              <span>{numberOfItemsOnCart}</span>
+            </NavLink>
+          ) : (
+            <a>
+              <img src={shoppingCartIcon} alt="" />
+            </a>
+          )}
         </div>
       </ShoppingBox>
     </HeaderContainer>
