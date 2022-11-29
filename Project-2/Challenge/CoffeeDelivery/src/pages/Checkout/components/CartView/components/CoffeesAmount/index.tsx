@@ -5,8 +5,12 @@ import { CoffeesContext } from '../../../../../../contexts/CoffeesContext'
 import { useContext } from 'react'
 
 export function CoffeesAmount() {
-  const { coffeeSelected, increaseAmountOnCheckout, decreaseAmountOnCheckout } =
-    useContext(CoffeesContext)
+  const {
+    coffeeSelected,
+    increaseAmountOnCheckout,
+    decreaseAmountOnCheckout,
+    setCoffee,
+  } = useContext(CoffeesContext)
 
   function transformToUpperCase(text: string) {
     return text.toUpperCase()
@@ -24,30 +28,39 @@ export function CoffeesAmount() {
     increaseAmountOnCheckout(name)
   }
 
+  function handleRemoveCoffee(name: string) {
+    const removeCoffee = coffeeSelected.filter((coffee) => coffee.name !== name)
+
+    setCoffee(removeCoffee)
+  }
+
   return (
     <>
-      {coffeeSelected.map((items) => {
+      {coffeeSelected.map((coffee) => {
         return (
-          <Coffees key={items.name}>
+          <Coffees key={coffee.name}>
             <div>
-              <img className="coffee-image" src={items.image} alt="" />
+              <img className="coffee-image" src={coffee.image} alt="" />
               <div>
                 <p className="coffee-name">Expresso Tradicional</p>
                 <div>
                   <TheAmount
-                    amount={items.amount}
+                    amount={coffee.amount}
                     onDecreaseAmount={handleDecreaseAmount}
                     onIncreaseAmount={handleIncreaseAmount}
-                    name={items.name}
+                    name={coffee.name}
                   />
-                  <button className="coffee-remove">
+                  <button
+                    className="coffee-remove"
+                    onClick={() => handleRemoveCoffee(coffee.name)}
+                  >
                     <img src={TrashIcon} alt="" />
                     <p>{transformToUpperCase('Remover')}</p>
                   </button>
                 </div>
               </div>
               <p className="coffee-price">
-                R$ {transformToCurrency(items.price)}
+                R$ {transformToCurrency(coffee.price)}
               </p>
             </div>
             <Divider />
