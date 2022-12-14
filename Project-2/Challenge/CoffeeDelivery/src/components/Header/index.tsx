@@ -32,7 +32,7 @@ export function Header() {
         </div>
         <div>
           {numberOfItemsOnCart > 0 ? (
-            <NavLink to="/checkout" title="Checkout">
+            <NavLink to="/forms" title="Forms">
               <img src={shoppingCartIcon} alt="" />
               <span>{numberOfItemsOnCart}</span>
             </NavLink>
