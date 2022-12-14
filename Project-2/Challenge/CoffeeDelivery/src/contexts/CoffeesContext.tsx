@@ -18,7 +18,12 @@ interface FormInfos {
   neighborhood: string
   city: string
   state: string
+  payment: string
 }
+
+// interface PaymentMethods {
+//   method: string
+// }
 
 interface CoffeeContextProps {
   coffeeSelected: SelectedCoffeesData[]
@@ -60,6 +65,7 @@ export function CoffeesContextProvider({
     neighborhood: '',
     city: '',
     state: '',
+    payment: '',
   })
 
   function setForm(formFields: FormInfos) {

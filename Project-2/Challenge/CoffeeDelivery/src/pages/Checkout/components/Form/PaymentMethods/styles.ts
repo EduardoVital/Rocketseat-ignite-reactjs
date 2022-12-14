@@ -41,7 +41,12 @@ export const PaymentOptionsContainer = styled.div`
     width: 11.25rem;
     padding: 1rem;
     border-radius: 0.375rem;
+    transition: 0.1s ease;
     cursor: pointer;
+
+    &:hover {
+      background-color: ${(props) => props.theme['base-hover']};
+    }
 
     img {
       margin-right: 0.75rem;
