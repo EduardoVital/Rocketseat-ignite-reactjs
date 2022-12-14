@@ -10,12 +10,23 @@ interface SelectedCoffeesData {
   total: number
 }
 
+interface FormInfos {
+  zipCode: string
+  address: string
+  number: string
+  aditionalAddress: string
+  neighborhood: string
+  city: string
+  state: string
+}
+
 interface CoffeeContextProps {
   coffeeSelected: SelectedCoffeesData[]
+  formInfo: FormInfos
   setCoffee: (coffees: SelectedCoffeesData[]) => void
   increaseAmountOnCheckout: (name: string) => void
   decreaseAmountOnCheckout: (name: string) => void
-  // coffeeListStorage: SelectedCoffeesData[]
+  setForm: (formFields: FormInfos) => void
 }
 
 export const CoffeesContext = createContext({} as CoffeeContextProps)
@@ -40,6 +51,20 @@ export function CoffeesContextProvider({
       }
     },
   )
+
+  const [formInfo, setFormInfo] = useState<FormInfos>({
+    zipCode: '',
+    address: '',
+    number: '',
+    aditionalAddress: '',
+    neighborhood: '',
+    city: '',
+    state: '',
+  })
+
+  function setForm(formFields: FormInfos) {
+    setFormInfo(formFields)
+  }
 
   function setCoffee(coffees: SelectedCoffeesData[]) {
     setCoffeeSelected(coffees)
@@ -86,10 +111,11 @@ export function CoffeesContextProvider({
     <CoffeesContext.Provider
       value={{
         coffeeSelected,
-        setCoffee,
+        formInfo,
         increaseAmountOnCheckout,
         decreaseAmountOnCheckout,
-        // coffeeListStorage,
+        setCoffee,
+        setForm,
       }}
     >
       {children}

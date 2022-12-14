@@ -36,7 +36,7 @@ export function TotalItems() {
         <span>R$ {transformToCurrency(total)}</span>
       </p>
 
-      <button>CONFIRMAR PEDIDO</button>
+      <button type="submit">CONFIRMAR PEDIDO</button>
     </TotalContainer>
   )
 }
