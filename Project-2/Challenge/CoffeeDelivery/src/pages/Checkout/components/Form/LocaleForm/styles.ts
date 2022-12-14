@@ -37,6 +37,22 @@ export const Form = styled.div`
       width: 100%;
       display: flex;
       gap: 0 0.75rem;
+      position: relative;
+
+      span {
+        position: absolute;
+        right: 0;
+        font-style: italic;
+        font-size: 0.75rem;
+        padding: 0.938rem 0.75rem;
+        color: ${(props) => props.theme['base-label']};
+      }
+    }
+
+    input {
+      ::placeholder {
+        color: ${(props) => props.theme['base-label']};
+      }
     }
   }
 `

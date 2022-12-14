@@ -19,6 +19,8 @@ export function LocaleForm() {
     setForm({ ...formInfo, [event.target.name]: event.target.value })
   }
 
+  const optional = 'Opcional'
+
   return (
     <Form>
       <div className="title-form">
@@ -37,6 +39,7 @@ export function LocaleForm() {
           placeholder="CEP"
           value={formInfo.zipCode}
           onChange={handleChange}
+          required
         />
 
         <InputAddres
@@ -46,6 +49,7 @@ export function LocaleForm() {
           placeholder="Rua"
           value={formInfo.address}
           onChange={handleChange}
+          required
         />
 
         <div>
@@ -56,6 +60,7 @@ export function LocaleForm() {
             placeholder="Número"
             value={formInfo.number}
             onChange={handleChange}
+            required
           />
 
           <InputAditionalAddress
@@ -66,6 +71,7 @@ export function LocaleForm() {
             value={formInfo.aditionalAddress}
             onChange={handleChange}
           />
+          {!formInfo.aditionalAddress && <span>{optional}</span>}
         </div>
 
         <div>
@@ -76,6 +82,7 @@ export function LocaleForm() {
             placeholder="Bairro"
             value={formInfo.neighborhood}
             onChange={handleChange}
+            required
           />
 
           <InputCity
@@ -85,6 +92,7 @@ export function LocaleForm() {
             placeholder="Cidade"
             value={formInfo.city}
             onChange={handleChange}
+            required
           />
 
           <InputState
@@ -94,6 +102,8 @@ export function LocaleForm() {
             placeholder="UF"
             value={formInfo.state}
             onChange={handleChange}
+            maxLength={2}
+            required
           />
         </div>
       </div>

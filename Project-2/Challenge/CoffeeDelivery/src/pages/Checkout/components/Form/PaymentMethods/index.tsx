@@ -1,7 +1,7 @@
 import { PaymentForm, PaymentOptionsContainer } from './styles'
 import paymentIcon from '../../../../../assets/paymentIcon.svg'
 import { paymentOptions } from '../../../../../utilities/paymentMethodsList'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { CoffeesContext } from '../../../../../contexts/CoffeesContext'
 
 export function PaymentMethods() {

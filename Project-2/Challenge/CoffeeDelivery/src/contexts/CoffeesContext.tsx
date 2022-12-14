@@ -21,10 +21,6 @@ interface FormInfos {
   payment: string
 }
 
-// interface PaymentMethods {
-//   method: string
-// }
-
 interface CoffeeContextProps {
   coffeeSelected: SelectedCoffeesData[]
   formInfo: FormInfos
