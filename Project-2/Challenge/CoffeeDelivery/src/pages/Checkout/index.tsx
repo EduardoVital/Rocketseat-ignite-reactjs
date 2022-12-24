@@ -1,3 +1,9 @@
+import { SellerInfo } from './components/SellerInfo'
+
 export function Checkout() {
-  return <h1>checkout</h1>
+  return (
+    <>
+      <SellerInfo />
+    </>
+  )
 }

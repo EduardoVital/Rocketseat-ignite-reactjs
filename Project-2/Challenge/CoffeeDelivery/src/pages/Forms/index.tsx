@@ -13,7 +13,7 @@ export function Forms() {
 
   return (
     <CheckoutContainer>
-      <form onSubmit={handleSubmitForm}>
+      <form onSubmit={() => handleSubmitForm}>
         <Form />
         <CartView />
       </form>
