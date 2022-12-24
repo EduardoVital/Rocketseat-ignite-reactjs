@@ -21,13 +21,21 @@ interface FormInfos {
   payment: string
 }
 
+interface CheckoutInfos {
+  address: string
+  number: string
+  payment: string
+}
+
 interface CoffeeContextProps {
   coffeeSelected: SelectedCoffeesData[]
   formInfo: FormInfos
+  checkoutInfos: CheckoutInfos
   setCoffee: (coffees: SelectedCoffeesData[]) => void
   increaseAmountOnCheckout: (name: string) => void
   decreaseAmountOnCheckout: (name: string) => void
   setForm: (formFields: FormInfos) => void
+  setCheckout: (checkout: CheckoutInfos) => void
 }
 
 export const CoffeesContext = createContext({} as CoffeeContextProps)
@@ -63,6 +71,16 @@ export function CoffeesContextProvider({
     state: '',
     payment: '',
   })
+
+  const [checkoutInfos, setCheckoutInfos] = useState<CheckoutInfos>({
+    address: '',
+    number: '',
+    payment: '',
+  })
+
+  function setCheckout(checkout: CheckoutInfos) {
+    setCheckoutInfos(checkout)
+  }
 
   function setForm(formFields: FormInfos) {
     setFormInfo(formFields)
@@ -114,10 +132,12 @@ export function CoffeesContextProvider({
       value={{
         coffeeSelected,
         formInfo,
+        checkoutInfos,
         increaseAmountOnCheckout,
         decreaseAmountOnCheckout,
         setCoffee,
         setForm,
+        setCheckout,
       }}
     >
       {children}

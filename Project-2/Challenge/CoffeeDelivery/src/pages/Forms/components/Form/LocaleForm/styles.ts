@@ -53,6 +53,8 @@ export const Form = styled.div`
       ::placeholder {
         color: ${(props) => props.theme['base-label']};
       }
+
+      color: ${(props) => props.theme['base-text']};
     }
   }
 `

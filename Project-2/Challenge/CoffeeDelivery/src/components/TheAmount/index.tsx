@@ -26,11 +26,11 @@ export function TheAmount({
 
   return (
     <Amount>
-      <button onClick={() => handleDecreaseAmount(name)}>
+      <button type="button" onClick={() => handleDecreaseAmount(name)}>
         <img src={decreaseIcon} alt="" />
       </button>
       <span>{amount}</span>
-      <button onClick={() => handleIncreaseAmount(name)}>
+      <button type="button" onClick={() => handleIncreaseAmount(name)}>
         <img src={increaseIcon} alt="" />
       </button>
     </Amount>

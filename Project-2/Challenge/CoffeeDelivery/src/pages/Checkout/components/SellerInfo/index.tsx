@@ -7,8 +7,14 @@ import {
   BoxSellerInfosContainer,
   RoundedIconImage,
 } from './styles'
+import { useContext } from 'react'
+import { CoffeesContext } from '../../../../contexts/CoffeesContext'
 
 export function SellerInfo() {
+  const { checkoutInfos } = useContext(CoffeesContext)
+
+  const { address, number, payment } = checkoutInfos
+
   return (
     <BoxSellerInfosContainer>
       <h1>Uhu! Pedido confirmado</h1>
@@ -22,7 +28,10 @@ export function SellerInfo() {
             </RoundedIconImage>
             <div className="box-container--text">
               <p>
-                Entrega em <span>Rua dos Pintassilgos, 102</span>
+                Entrega em{' '}
+                <span>
+                  {address}, {number}
+                </span>
               </p>
               <p>Paraíso do vale - Bom Princípio, RS </p>
             </div>
@@ -42,7 +51,7 @@ export function SellerInfo() {
             </RoundedIconImage>
             <div className="box-container--text">
               <p>Pagamento na entrega</p>
-              <span>Cartão de crédito</span>
+              <span>{payment}</span>
             </div>
           </div>
         </BoxSellerInfos>
