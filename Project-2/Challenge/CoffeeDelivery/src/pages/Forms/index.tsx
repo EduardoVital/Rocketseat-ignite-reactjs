@@ -6,7 +6,8 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function Forms() {
-  const { formInfo, setCheckout } = useContext(CoffeesContext)
+  const { formInfo, setCheckout, setCoffee, setForm } =
+    useContext(CoffeesContext)
   const navigate = useNavigate()
 
   const handleSubmitForm = (event: any) => {
@@ -19,6 +20,17 @@ export function Forms() {
         payment,
         address,
         number,
+      })
+      setCoffee([])
+      setForm({
+        zipCode: '',
+        address: '',
+        number: '',
+        aditionalAddress: '',
+        neighborhood: '',
+        city: '',
+        state: '',
+        payment: '',
       })
       navigate('/checkout')
     }
