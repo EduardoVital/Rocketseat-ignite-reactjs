@@ -55,11 +55,17 @@ export const Form = styled.div`
       }
 
       color: ${(props) => props.theme['base-text']};
+
+      &:focus {
+        transition: 0.5s ease;
+        border-color: ${(props) => props.theme['yellow-dark']};
+      }
     }
   }
 `
 
 export const InputZipCode = styled.input``
+
 export const InputNumber = styled.input``
 export const InputNeighborhood = styled.input``
 
