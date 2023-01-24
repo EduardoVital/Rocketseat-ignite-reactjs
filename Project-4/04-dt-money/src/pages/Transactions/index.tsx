@@ -4,6 +4,7 @@ import { Summary } from '../../components/Summary'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import { SearchForm } from './components/SearchForm'
+import { Pagination } from './components/Pagination'
 
 import {
   PriceHighlight,
@@ -45,6 +46,7 @@ export function Transactions() {
             })}
           </tbody>
         </TransactionsTable>
+        <Pagination />
       </TransactionsContainer>
     </div>
   )

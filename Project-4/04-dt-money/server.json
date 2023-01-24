@@ -31,6 +31,46 @@
       "type": "income",
       "createdAt": "2023-01-20T01:27:08.779Z",
       "id": 4
+    },
+    {
+      "description": "Passagem aérea",
+      "price": 5000,
+      "category": "Viagem",
+      "type": "outcome",
+      "createdAt": "2023-01-21T15:25:33.293Z",
+      "id": 5
+    },
+    {
+      "description": "Hostel",
+      "price": 3000,
+      "category": "Viagem",
+      "type": "outcome",
+      "createdAt": "2023-01-21T15:25:48.706Z",
+      "id": 6
+    },
+    {
+      "description": "Website",
+      "price": 15000,
+      "category": "Software",
+      "type": "income",
+      "createdAt": "2023-01-21T15:26:12.331Z",
+      "id": 7
+    },
+    {
+      "description": "Cachorro quente",
+      "price": 3,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2023-01-21T15:26:41.120Z",
+      "id": 8
+    },
+    {
+      "description": "Supermercado",
+      "price": 850,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2023-01-21T15:26:59.713Z",
+      "id": 9
     }
   ]
 }

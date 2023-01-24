@@ -18,10 +18,18 @@ interface CreateTransactionInput {
   type: 'income' | 'outcome'
 }
 
+interface Paginate {
+  totalCount: number | undefined
+  page: number
+  itemsPerPage: number
+}
+
 interface TransactionContextType {
   transactions: Transaction[]
+  pagination: Paginate
   fetchTransactions: (query?: string) => Promise<void>
   createTransaction: (data: CreateTransactionInput) => Promise<void>
+  setPage: (page: number) => void
 }
 
 interface TransactionsProviderProps {
@@ -32,18 +40,37 @@ export const TransactionsContext = createContext({} as TransactionContextType)
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
+  const [pagination, setPagination] = useState<Paginate>({
+    totalCount: 0,
+    itemsPerPage: 5,
+    page: 1,
+  })
 
-  const fetchTransactions = useCallback(async (query?: string) => {
-    const response = await api.get('transactions', {
-      params: {
-        _sort: 'createdAt',
-        _order: 'desc',
-        q: query,
-      },
-    })
+  const fetchTransactions = useCallback(
+    async (query?: string, page = pagination.page) => {
+      const response = await api.get('transactions', {
+        params: {
+          _sort: 'createdAt',
+          _order: 'desc',
+          _page: page,
+          _limit: 5,
+          q: query,
+        },
+      })
 
-    setTransactions(response.data)
-  }, [])
+      setPagination({
+        ...pagination,
+        totalCount: Number(response.headers['x-total-count']),
+      })
+      setTransactions(response.data)
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [pagination.page],
+  )
+
+  const setPage = (page: number) => {
+    setPagination({ ...pagination, page })
+  }
 
   const createTransaction = useCallback(
     async (data: CreateTransactionInput) => {
@@ -72,6 +99,8 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
         transactions,
         fetchTransactions,
         createTransaction,
+        pagination,
+        setPage,
       }}
     >
       {children}
