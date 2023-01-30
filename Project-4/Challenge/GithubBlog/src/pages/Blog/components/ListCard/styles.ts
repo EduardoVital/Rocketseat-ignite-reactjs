@@ -39,9 +39,12 @@ export const Card = styled.div`
   }
 
   p {
-    height: 7rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+    height: 6.25rem;
     font-size: 1rem;
-    color: ${(props) => props.theme['base-text']};
+    line-height: 1.6rem;
   }
 `
