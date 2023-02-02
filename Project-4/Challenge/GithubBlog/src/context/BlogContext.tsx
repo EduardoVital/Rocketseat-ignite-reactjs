@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import { api } from '../lib/axios'
 
@@ -25,15 +26,17 @@ export function BlogContextProvider({ children }: BlogContextProviderProps) {
   const [search, setSearch] = useState<string>()
   const [total, setTotal] = useState<number>(0)
 
-  const texto = 'Boas Práticas'
   const userName = 'rocketseat-education'
   const repo = 'reactjs-github-blog-challenge'
 
   const getListofCotents = async () => {
     await api
-      .get(`/search/issues?q=${texto}%20repo:${userName}/${repo}`)
+      .get(`/search/issues?q=${search}%20repo:${userName}/${repo}`)
       .then((response) => {
-        setTotal(response?.data?.total_count ? response?.data?.total_count : 0)
+        const getTotal = response?.data?.total_count
+          ? response?.data?.total_count
+          : 0
+        setTotal(getTotal)
 
         const getListOfItems = response.data.items.map((item: any) => {
           return {
@@ -49,10 +52,9 @@ export function BlogContextProvider({ children }: BlogContextProviderProps) {
 
   useEffect(() => {
     getListofCotents()
-  }, [list])
+  }, [search])
 
   function setSearchText(term: string) {
-    console.log(term)
     setSearch(term)
   }
 

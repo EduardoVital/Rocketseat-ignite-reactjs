@@ -1,7 +1,10 @@
+import { PostInformations } from './components/PostInformations'
+import { BlogContainer } from '../Blog/styles'
+
 export function PostDetail() {
   return (
-    <div>
-      <h1>Post Detail</h1>
-    </div>
+    <BlogContainer>
+      <PostInformations />
+    </BlogContainer>
   )
 }
