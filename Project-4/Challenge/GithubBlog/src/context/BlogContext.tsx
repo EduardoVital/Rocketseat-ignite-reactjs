@@ -7,6 +7,7 @@ interface ListCardData {
   content: string
   date: string
   id: number
+  number: number
 }
 
 interface BlogContextType {
@@ -29,7 +30,7 @@ export function BlogContextProvider({ children }: BlogContextProviderProps) {
   const userName = 'rocketseat-education'
   const repo = 'reactjs-github-blog-challenge'
 
-  const getListofCotents = async () => {
+  const getListofContents = async () => {
     await api
       .get(`/search/issues?q=${search}%20repo:${userName}/${repo}`)
       .then((response) => {
@@ -44,6 +45,7 @@ export function BlogContextProvider({ children }: BlogContextProviderProps) {
             content: item.body,
             date: item.created_at,
             id: item.id,
+            number: item.number,
           }
         })
         setList(getListOfItems)
@@ -51,7 +53,7 @@ export function BlogContextProvider({ children }: BlogContextProviderProps) {
   }
 
   useEffect(() => {
-    getListofCotents()
+    getListofContents()
   }, [search])
 
   function setSearchText(term: string) {

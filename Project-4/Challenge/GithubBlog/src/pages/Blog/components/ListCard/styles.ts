@@ -5,6 +5,11 @@ export const ListCardsContainer = styled.section`
   flex-wrap: wrap;
   margin: 3rem 0;
   gap: 2rem;
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme['base-text']};
+  }
 `
 
 export const Card = styled.div`
