@@ -23,7 +23,11 @@ interface PostDetailsData {
   user: string
 }
 
-export function PostInformations() {
+interface PostDetailsProps {
+  getContent: (content: string) => void
+}
+
+export function PostInformations({ getContent }: PostDetailsProps) {
   const [postDetailsInfos, setPostDetailsInfo] = useState<PostDetailsData>()
 
   const { id } = useParams()
@@ -34,6 +38,7 @@ export function PostInformations() {
         `repos/rocketseat-education/reactjs-github-blog-challenge/issues/${id}`,
       )
       .then((response) => {
+        getContent(response.data.body)
         const { title, created_at, comments, html_url } = response.data
         const { login } = response.data.user
         setPostDetailsInfo({
