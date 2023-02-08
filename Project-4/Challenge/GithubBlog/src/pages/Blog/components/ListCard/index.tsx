@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { BlogContext } from '../../../../context/BlogContext'
 import { Card, ListCardsContainer } from './styles'
 import { NavLink } from 'react-router-dom'
+import { dateFormatter } from '../../../../utils/formatter'
 
 export function ListCard() {
   const { list } = useContext(BlogContext)
@@ -14,7 +15,7 @@ export function ListCard() {
             <Card>
               <div>
                 <h3>{item.title}</h3>
-                <span>Há 1 dia</span>
+                <span>{dateFormatter(item.date)}</span>
               </div>
               <p>{item.content}</p>
             </Card>

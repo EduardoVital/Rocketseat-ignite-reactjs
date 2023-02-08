@@ -10,6 +10,7 @@ import IconCalendar from '../../../../assets/icons/IconCalendar.svg'
 import IconComment from '../../../../assets/icons/IconComment.svg'
 import IconArrowUp from '../../../../assets/icons/IconArrowUp.svg'
 import { Links, Title } from './styles'
+import { dateFormatter } from '../../../../utils/formatter'
 
 import { NavLink, useParams } from 'react-router-dom'
 import { api } from '../../../../lib/axios'
@@ -40,11 +41,12 @@ export function PostInformations({ getContent }: PostDetailsProps) {
       .then((response) => {
         getContent(response.data.body)
         const { title, created_at, comments, html_url } = response.data
+        const date = dateFormatter(created_at)
         const { login } = response.data.user
         setPostDetailsInfo({
           title,
           link: html_url,
-          createdAt: created_at,
+          createdAt: date,
           comments,
           user: login,
         })
@@ -75,7 +77,7 @@ export function PostInformations({ getContent }: PostDetailsProps) {
         </span>
         <span>
           <img src={IconCalendar} alt="" />
-          Há 1 dia
+          <p>{postDetailsInfos?.createdAt}</p>
         </span>
         <span>
           <img src={IconComment} alt="" />

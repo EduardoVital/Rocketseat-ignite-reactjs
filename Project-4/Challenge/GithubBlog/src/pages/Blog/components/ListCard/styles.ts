@@ -40,6 +40,11 @@ export const Card = styled.div`
     span {
       font-size: 0.875rem;
       color: ${(props) => props.theme['base-span']};
+      white-space: nowrap;
+    }
+
+    span::first-letter {
+      text-transform: uppercase;
     }
   }
 

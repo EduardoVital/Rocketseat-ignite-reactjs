@@ -71,5 +71,9 @@ export const MediaInformation = styled.div`
     img {
       width: 1.125rem;
     }
+
+    p::first-letter {
+      text-transform: uppercase;
+    }
   }
 `
