@@ -1,5 +1,5 @@
 import React from 'react'
-import CartSopDefaultImage from "../../assets/CartShopDefault.svg"
+import CartShopDefaultImage from "../../assets/CartShopDefault.svg"
 import Image from "next/image"
 import { CartShopBox, NumberOfItems } from "../../styles/components/cartShop"
 
@@ -13,7 +13,7 @@ export default function CartShop() {
           {totalItems}
         </NumberOfItems>
       }
-      <Image src={CartSopDefaultImage} alt="" />
+      <Image src={CartShopDefaultImage} alt="" />
     </CartShopBox>
   )
 }
