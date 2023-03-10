@@ -116,3 +116,13 @@ export const CartShopContainer = styled('div', {
     backgroundColor: '$gray800'
   }
 })
+
+export const ContainerItem = styled('div', {
+  height: '560px',
+  overflow: 'auto',
+
+  '&::-webkit-scrollbar': {
+    display: 'none'
+  }
+  
+})
