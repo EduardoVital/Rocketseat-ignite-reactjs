@@ -3,7 +3,11 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {
-    "react-scripts": "^5.0.1"
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build"
+  },
+  "devDependencies": {
+    "turbo": "^1.8.8"
   }
 }
